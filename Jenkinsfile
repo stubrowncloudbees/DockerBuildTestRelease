@@ -33,9 +33,10 @@ spec:
     stages {
         stage('docker') {
             steps {
-              
-                sh 'echo build_image'
-                //sh 'docker image build -t stuartcbrown/nginxtest .'
+                container('docker') {
+                    sh 'echo build_image'
+                    //sh 'docker image build -t stuartcbrown/nginxtest .'
+                }
 
             }
         }
