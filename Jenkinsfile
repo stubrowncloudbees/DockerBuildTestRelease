@@ -51,11 +51,20 @@ spec:
                 container('docker') {
                     sh 'echo build_image'
                     sh "docker image build -t ${DOCKER_IMAGE} ."
-                    //sh 'docker tag '
+
                     sh 'docker images'
                 }
 
             }
+        }
+    }
+    post {
+        success {
+            sh "docker push ${DOCKER_IMAGE}"
+        }
+        failure{
+            sh "docker rmi ${DOCKER_IMAGE}"
+
         }
     }
 }
