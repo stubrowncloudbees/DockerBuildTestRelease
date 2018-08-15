@@ -1,4 +1,5 @@
 #!/usr/bin/env groovy
+@Library("jenkins-shared-library") _
 
 currentBuild.displayName = "#" + currentBuild.number + " - " + env.BRANCH_NAME
 
