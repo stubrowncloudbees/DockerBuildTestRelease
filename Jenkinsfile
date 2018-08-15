@@ -24,9 +24,7 @@ spec:
   - name: docker
     image: docker:17.12.1-ce-dind
     privileged: true
-    command:
-    - cat
-    tty: true    
+    
 """
         }
     }
