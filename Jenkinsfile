@@ -2,7 +2,7 @@ pipeline {
     agent {
         kubernetes {
             label 'my-pod-template'
-            defaultContainer 'jnlp'
+            defaultContainer 'docker'
             yaml """
 apiVersion: v1
 kind: Pod
