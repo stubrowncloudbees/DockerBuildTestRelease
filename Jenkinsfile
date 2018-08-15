@@ -1,9 +1,9 @@
 pipeline {
-  agent {
-    kubernetes {
-      label 'my-pod-template'
-      defaultContainer 'jnlp'
-      yaml """
+    agent {
+        kubernetes {
+            label 'my-pod-template'
+            defaultContainer 'jnlp'
+            yaml """
 apiVersion: v1
 kind: Pod
 metadata:
@@ -28,14 +28,16 @@ spec:
     - cat
     tty: true    
 """
+        }
     }
-  }
-  stages {
-    stage('docker') {
-      steps {
-        container('docker')
-        sh 'echo build_image'
-      }
+    stages {
+        stage('docker') {
+            steps {
+                container('docker')
+                sh 'echo build_image'
+                sh 'docker image build -t stuartcbrown/nginxtest .'
+
+            }
+        }
     }
-  }
 }
