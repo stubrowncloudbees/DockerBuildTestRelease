@@ -56,21 +56,21 @@ spec:
 
                         sh 'docker images'
                     }
-
                 }
-            }
-        }
-        post {
-            success {
-                container('docker') {
-                    sh "docker push ${DOCKER_IMAGE}"
-                }
-            }
-            failure {
-                container('docker') {
-                    sh "docker rmi ${DOCKER_IMAGE}"
-                }
-
             }
         }
     }
+    post {
+        success {
+            container('docker') {
+                sh "docker push ${DOCKER_IMAGE}"
+            }
+        }
+        failure {
+            container('docker') {
+                sh "docker rmi ${DOCKER_IMAGE}"
+            }
+
+        }
+    }
+}
