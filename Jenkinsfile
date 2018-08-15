@@ -35,7 +35,7 @@ spec:
             steps {
                 container('docker')
                 sh 'echo build_image'
-                sh 'docker image build -t stuartcbrown/nginxtest .'
+                //sh 'docker image build -t stuartcbrown/nginxtest .'
 
             }
         }
