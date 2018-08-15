@@ -22,14 +22,17 @@ spec:
     - cat
     tty: true
   - name: docker
-    image: docker:17.12.1-ce-dind
-    command:
-    - cat
-    tty: true 
+    image: docker:18.06
+    command: ["cat"]
+    tty: true
+    volumeMounts:
+    - mountPath: /var/run/docker.sock
+      name: docker-socket
   volumes:
-  - hostPathVolume: 
-    mountPath: '/var/run/docker.sock',
-    hostPath: '/var/run/docker.sock'
+  - name: docker-socket
+    hostPath:
+      path: /var/run/docker.sock
+      type: Socket
   
       
 """
