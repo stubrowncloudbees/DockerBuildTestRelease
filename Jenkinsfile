@@ -21,12 +21,19 @@ spec:
     command:
     - cat
     tty: true
+  - name: docker
+    image: docker:17.12.1-ce-dind
+    privileged: true
+    command:
+    - cat
+    tty: true    
 """
     }
   }
   stages {
-    stage('Build') {
+    stage('docker') {
       steps {
+        container('docker')
         sh 'echo build_image'
       }
     }
