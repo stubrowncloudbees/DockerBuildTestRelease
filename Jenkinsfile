@@ -62,7 +62,7 @@ spec:
             }
         }
     }
-    post {
+    /*post {
         success {
             container('docker') {
                 //sh "docker push ${DOCKER_IMAGE}"
@@ -75,4 +75,5 @@ spec:
 
         }
     }
+    */
 }
