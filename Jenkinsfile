@@ -11,15 +11,27 @@ metadata:
     some-label: some-label-value
 spec:
   containers:
+  - name: maven
+    image: maven:alpine
+    command:
+    - cat
+    tty: true
+  - name: busybox
+    image: busybox
+    command:
+    - cat
+    tty: true
   - name: docker
     image: docker:17.12.1-ce-dind
-    command: '/bin/sh -c'
-    ttyEnabled: true
-    args: 'cat'
+    command:
+    - cat
+    tty: true 
   volumes:
-    mountPath: '/var/run/docker.sock'
+  - hostPathVolume: 
+    mountPath: '/var/run/docker.sock',
     hostPath: '/var/run/docker.sock'
-    
+  
+      
 """
         }
     }
