@@ -11,16 +11,6 @@ metadata:
     some-label: some-label-value
 spec:
   containers:
-  - name: maven
-    image: maven:alpine
-    command:
-    - cat
-    tty: true
-  - name: busybox
-    image: busybox
-    command:
-    - cat
-    tty: true
   - name: docker
     image: docker:18.06
     command: ["cat"]
@@ -33,8 +23,7 @@ spec:
     hostPath:
       path: /var/run/docker.sock
       type: Socket
-  
-      
+        
 """
         }
     }
