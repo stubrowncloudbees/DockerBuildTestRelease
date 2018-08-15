@@ -49,26 +49,28 @@ spec:
         stage('docker') {
             steps {
                 container('docker') {
-                    sh 'echo build_image'
-                    sh "docker image build -t ${DOCKER_IMAGE} ."
+                    withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dpassword', usernameVariable: 'duser')]) {
+                        docker login -p ${dpassword} -u ${duser}
+                        sh 'echo build_image'
+                        sh "docker image build -t ${DOCKER_IMAGE} ."
 
-                    sh 'docker images'
+                        sh 'docker images'
+                    }
+
+                }
+            }
+        }
+        post {
+            success {
+                container('docker') {
+                    sh "docker push ${DOCKER_IMAGE}"
+                }
+            }
+            failure {
+                container('docker') {
+                    sh "docker rmi ${DOCKER_IMAGE}"
                 }
 
             }
         }
     }
-    post {
-        success {
-            container('docker') {
-                sh "docker push ${DOCKER_IMAGE}"
-            }
-        }
-        failure {
-            container('docker') {
-                sh "docker rmi ${DOCKER_IMAGE}"
-            }
-
-        }
-    }
-}
