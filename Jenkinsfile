@@ -13,10 +13,12 @@ spec:
   containers:
   - name: docker
     image: docker:17.12.1-ce-dind
-    privileged: true
-    command:
-    - cat
-    tty: true
+    command: '/bin/sh -c'
+    ttyEnabled: true
+    args: 'cat'
+  volumes:
+    mountPath: '/var/run/docker.sock'
+    hostPath: '/var/run/docker.sock'
     
 """
         }
