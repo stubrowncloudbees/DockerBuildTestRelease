@@ -65,12 +65,12 @@ spec:
     post {
         success {
             container('docker') {
-                sh "docker push ${DOCKER_IMAGE}"
+                //sh "docker push ${DOCKER_IMAGE}"
             }
         }
         failure {
             container('docker') {
-                sh "docker rmi ${DOCKER_IMAGE}"
+                //sh "docker rmi ${DOCKER_IMAGE}"
             }
 
         }
