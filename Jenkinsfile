@@ -21,7 +21,7 @@ pipeline {
     agent {
         kubernetes {
             label 'my-pod-template'
-            defaultContainer 'jnlp'
+            defaultContainer 'docker'
             yaml """
 apiVersion: v1
 kind: Pod
@@ -49,7 +49,7 @@ spec:
     stages {
         stage('docker') {
             steps {
-                container('docker') {
+                //container('docker') {
                     dockerImageBld('one','two','three')
                     //dockerLogin("dockerhub")
                     //withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dpassword', usernameVariable: 'duser')]) {
@@ -59,7 +59,7 @@ spec:
 
                     sh 'docker images'
                     //}
-                }
+                //}
             }
         }
     }
