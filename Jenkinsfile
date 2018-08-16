@@ -57,11 +57,13 @@ spec:
                 }
             }
         }
-        stage('test'){
-            script() {
-                docker.image(${DOCKER_IMAGE}).inside() {
-                    sh "ls"
-                   
+        stage('test') {
+            steps {
+                script() {
+                    docker.image($ { DOCKER_IMAGE }).inside() {
+                        sh "ls"
+
+                    }
                 }
             }
         }
