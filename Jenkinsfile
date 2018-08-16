@@ -61,7 +61,7 @@ spec:
             steps {
                 container('docker') {
                     sh "docker run -p 8000:90 ${DOCKER_IMAGE}"
-                    }
+                    
                 }
             }
         }
