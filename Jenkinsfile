@@ -54,6 +54,7 @@ spec:
                     sh 'echo build_image'
                     sh "docker image build -t ${DOCKER_IMAGE} ."
                     sh 'docker images'
+                    sh 'sleep 300'
                 }
             }
         }
