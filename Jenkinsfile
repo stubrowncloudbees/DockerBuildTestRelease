@@ -65,9 +65,7 @@ spec:
             }
         }
         failure {
-            //do nothing
+            //sh "docker rmi ${DOCKER_IMAGE}"
         }
     }
 }
-}
-
