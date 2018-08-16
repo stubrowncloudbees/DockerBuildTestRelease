@@ -59,10 +59,12 @@ spec:
         }
         stage('test') {
             steps {
-                script() {
+                container('docker') {
+
                     docker.image($ { DOCKER_IMAGE }).inside() {
                         sh "ls"
 
+                      
                     }
                 }
             }
