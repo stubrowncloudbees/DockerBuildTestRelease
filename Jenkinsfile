@@ -60,11 +60,12 @@ spec:
         stage('test') {
             steps {
                 container('docker') {
-
+                    script{
                     docker.image('nginx').inside() {
                         sh "ls"
 
 
+                    }
                     }
                 }
             }
