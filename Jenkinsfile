@@ -61,7 +61,7 @@ spec:
             steps {
                 container('docker') {
                     sh "echo trying to start docker image ${DOCKER_IMAGE}"
-                    sh "docker run -p 8000:90 ${DOCKER_IMAGE}"
+                    sh "docker run -p 8032:90 ${DOCKER_IMAGE}"
 
                 }
             }
