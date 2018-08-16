@@ -57,6 +57,14 @@ spec:
                 }
             }
         }
+        stage('test'){
+            script() {
+                docker.image(${DOCKER_IMAGE}).inside() {
+                    sh "ls"
+                   
+                }
+            }
+        }
     }
     post {
         success {
