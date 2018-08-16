@@ -56,23 +56,23 @@ spec:
                     sh "docker image build -t ${DOCKER_IMAGE} ."
 
                     sh 'docker images'
-               
+
                 }
             }
         }
     }
-    /*post {
+    post {
         success {
             container('docker') {
-                //sh "docker push ${DOCKER_IMAGE}"
+                sh "docker push ${DOCKER_IMAGE}"
             }
         }
         failure {
             container('docker') {
-                //sh "docker rmi ${DOCKER_IMAGE}"
+                sh "docker rmi ${DOCKER_IMAGE}"
             }
 
         }
     }
-    */
+
 }
