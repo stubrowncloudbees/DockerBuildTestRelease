@@ -50,16 +50,13 @@ spec:
         stage('docker') {
             steps {
                 container('docker') {
-                    //dockerImageBld('one','two','three')
-                    //dockerLogin("dockerhub")
+
                     dockerLogin()
-                    //withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dpassword', usernameVariable: 'duser')]) {
-                    //sh "docker login -p ${dpassword} -u ${duser}"
                     sh 'echo build_image'
                     sh "docker image build -t ${DOCKER_IMAGE} ."
 
                     sh 'docker images'
-                    //}
+               
                 }
             }
         }
