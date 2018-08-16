@@ -69,7 +69,10 @@ spec:
         }
         failure {
             container('docker') {
-                sh "docker rmi ${DOCKER_IMAGE}"
+
+                //sh "docker rmi ${DOCKER_IMAGE}"
+
+
             }
 
         }
