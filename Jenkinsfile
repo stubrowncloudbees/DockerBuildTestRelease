@@ -61,7 +61,7 @@ spec:
             steps {
                 container('docker') {
                     script{
-                    docker.image('nginx').inside() {
+                    docker.image(${DOCKER_IMAGE}).inside() {
                         sh "ls"
 
 
