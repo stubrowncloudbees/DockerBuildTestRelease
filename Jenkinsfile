@@ -60,12 +60,7 @@ spec:
         stage('test') {
             steps {
                 container('docker') {
-                    script{
-                    docker.image(DOCKER_IMAGE).inside() {
-                        sh "ls"
-
-
-                    }
+                    sh "docker run -p 8000:90 ${DOCKER_IMAGE}"
                     }
                 }
             }
