@@ -61,11 +61,11 @@ spec:
             steps {
                 container('docker') {
                     script{
-                    //docker.image(DOCKER_IMAGE).inside() {
+                    docker.image(${DOCKER_IMAGE}).inside() {
                         sh "ls"
 
 
-                    //}
+                    }
                     }
                 }
             }
