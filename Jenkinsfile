@@ -50,10 +50,13 @@ spec:
         stage('docker') {
             steps {
                 container('docker') {
+
                     dockerLogin()
                     sh 'echo build_image'
                     sh "docker image build -t ${DOCKER_IMAGE} ."
+
                     sh 'docker images'
+
                 }
             }
         }
@@ -65,7 +68,14 @@ spec:
             }
         }
         failure {
-            //sh "docker rmi ${DOCKER_IMAGE}"
+            container('docker') {
+
+                //sh "docker rmi ${DOCKER_IMAGE}"
+
+
+            }
+
         }
     }
+
 }
