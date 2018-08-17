@@ -53,8 +53,9 @@ spec:
                     dockerLogin()
                     sh 'echo build_image'
                     sh "docker image build -t ${DOCKER_IMAGE} ."
-                    sh 'docker images'
+                    //sh 'docker images'
                     //sh 'sleep 300'
+                    sh "docker run -p 8032:90 ${DOCKER_IMAGE}"
                 }
             }
         }
