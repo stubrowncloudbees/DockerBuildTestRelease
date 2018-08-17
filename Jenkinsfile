@@ -62,10 +62,8 @@ spec:
             steps {
                 container('docker') {
                     sh "echo trying to start docker image ${DOCKER_IMAGE}"
-                    //sh "docker run -p 8032:90 ${DOCKER_IMAGE}"
-                    sh 'iptables -m state -h'
-                    sh 'iptables -p icmp -h'
-                    sh 'iptables -j DROP -h'
+                    sh "docker run -p 8032:90 ${DOCKER_IMAGE}"
+
 
                 }
             }
