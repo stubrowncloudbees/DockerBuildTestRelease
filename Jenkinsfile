@@ -56,8 +56,8 @@ spec:
                     //sh 'docker images'
                     //sh 'sleep 300'
                     sh 'docker version'
-                    sh 'docker-compose version'
-                    sh "docker run -p 8032:90 ${DOCKER_IMAGE}"
+                    //sh 'docker-compose version'
+                   // sh "docker run -p 8032:90 ${DOCKER_IMAGE}"
                 }
             }
         }
