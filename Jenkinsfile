@@ -30,6 +30,9 @@ metadata:
     some-label: some-label-value
 spec:
   containers:
+  - env:
+    - name: "HTTPaa_PROXY"
+      value: "http://10.4.55.31:8080"
   - name: docker
     image: docker:18.06
     command: ["cat"]
