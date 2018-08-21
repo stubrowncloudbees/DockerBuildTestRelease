@@ -29,6 +29,9 @@ metadata:
   labels:
     some-label: some-label-value
 spec:
+  env:
+    - name: "stu"
+      value: "boo"
   containers:
   - name: docker
     image: docker:18.06
