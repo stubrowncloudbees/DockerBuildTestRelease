@@ -34,6 +34,9 @@ spec:
     image: docker:18.06
     command: ["cat"]
     tty: true
+     envVars: [
+        envVar(key: 'http_proxy', value: 'http://10.4.55.31:8080')
+    ]
     volumeMounts:
     - mountPath: /var/run/docker.sock
       name: docker-socket
