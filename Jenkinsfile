@@ -34,9 +34,6 @@ spec:
     image: docker:18.06
     command: ["cat"]
     tty: true
-     envVars: [
-        envVar(key: 'http_proxy', value: 'http://10.4.55.31:8080')
-    ]
     volumeMounts:
     - mountPath: /var/run/docker.sock
       name: docker-socket
@@ -57,7 +54,7 @@ spec:
                     sh 'echo build_image'
                     sh "docker image build -t ${DOCKER_IMAGE} ."
                     //sh 'docker images'
-                    //sh 'sleep 300'
+                    sh 'sleep 300'
                     sh 'docker version'
 
                     //sh 'docker-compose version'
